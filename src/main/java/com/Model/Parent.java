@@ -2,11 +2,13 @@ package com.Model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NonNull;
 
 @Entity
 @Data
+@Table(name = "parent")
 public class Parent extends Person {
     @Id
     @NonNull

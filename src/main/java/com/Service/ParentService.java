@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ParentService {
-    private final ParentRepository parentRepository;
+    private ParentRepository parentRepository;
 
     @Autowired
     public ParentService(ParentRepository parentRepository) {
