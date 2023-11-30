@@ -5,13 +5,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
+@EqualsAndHashCode(callSuper = true)
+@Data
+@Table
 @Entity
 @NoArgsConstructor
-@Data
-@Table(name = "teacher")
 public class Teacher extends Person {
     @Id
     private String id;

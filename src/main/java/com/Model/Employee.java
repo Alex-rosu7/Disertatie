@@ -4,46 +4,44 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-@Table
 @Entity
+@Table
 @NoArgsConstructor
-public class Student extends Person {
+public class Employee extends Person {
 
     @Id
     private String id;
 
-    /**
-     * The class of the student ( example : 8A ).
-     */
     @Column
-    private String room;
+    private double salary = 0.00D;
 
+    @Column
+    private String company;
 
-    /**
-     * Constructor
-     *
-     * @param firstName
-     * @param secondName
-     * @param email
-     * @param password
-     */
-    public Student(String firstName, String secondName, String email, String password) {
-        super(firstName, secondName, email, password);
+    @Column
+    boolean deleted;
+
+    public Employee(String FName, String LName, String Email, String Password, double Salary) {
+        super(FName, LName, Email, Password);
+        this.salary = Salary;
     }
+
 
     @Override
     public String getId() {
-        return id;
+        return this.id;
     }
 
     @Override
     public void setId(String id) {
         this.id = id;
     }
+
 }
