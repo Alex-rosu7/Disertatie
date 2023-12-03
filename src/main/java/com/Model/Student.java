@@ -24,6 +24,9 @@ public class Student extends Person {
     @Column
     private String room;
 
+    @Column
+    private int Grade;
+
 
     /**
      * Constructor

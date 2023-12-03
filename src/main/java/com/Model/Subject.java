@@ -21,4 +21,5 @@ public enum Subject {
     public int getSubjectNumber() {
         return subjectNumber;
     }
+
 }

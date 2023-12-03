@@ -14,7 +14,7 @@ import lombok.NonNull;
 @Table
 @Entity
 @NoArgsConstructor
-public class Teacher extends Person {
+public class Teacher extends Employee {
     @Id
     private String id;
 
