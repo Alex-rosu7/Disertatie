@@ -7,9 +7,9 @@ import io.micrometer.core.instrument.config.validate.Validated;
 import io.micrometer.core.instrument.config.validate.ValidationException;
 import lombok.NoArgsConstructor;
 
+
+@NoArgsConstructor
 public class ValidatorParent implements Validator<Parent> {
-    public ValidatorParent() {
-    }
 
     public void validate(Parent entity) throws ValidationException {
         InvalidReason missing = InvalidReason.MISSING;
@@ -33,8 +33,6 @@ public class ValidatorParent implements Validator<Parent> {
         if (entity.getPassword().isEmpty()) {
             throw new ValidationException(Validated.invalid("Password", entity, "Password shouldn't be empty ", missing));
         }
-
-
 
     }
 }
