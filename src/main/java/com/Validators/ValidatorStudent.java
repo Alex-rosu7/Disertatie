@@ -1,46 +1,50 @@
 package com.Validators;
 
 
-
+import com.Exceptions.ValidationException;
 import com.Model.Student;
-import io.micrometer.core.instrument.config.validate.InvalidReason;
-import io.micrometer.core.instrument.config.validate.Validated;
-import io.micrometer.core.instrument.config.validate.ValidationException;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 public class ValidatorStudent implements Validator<Student> {
 
     public void validate(Student entity) throws ValidationException {
-        InvalidReason missing = InvalidReason.MISSING;
-        InvalidReason malformed = InvalidReason.MALFORMED;
+
+        String err;
         if (entity.getFirstName().isEmpty()) {
-            throw new ValidationException(Validated.invalid("FirstName", entity, "First name shouldn't be empty ", missing));
+            err = "Field is not properly configured: " + "FirstName" + ". For " + entity + ". Case " + "First name shouldn't be empty.";
+            throw new ValidationException(err);
         }
 
         if (entity.getSecondName().isEmpty()) {
-            throw new ValidationException(Validated.invalid("SecondName", entity, "Second name shouldn't be empty ", missing));
+            err = "Field is not properly configured: " + "SecondName" + ". For " + entity + ". Case " + "Second name shouldn't be empty.";
+            throw new ValidationException(err);
         }
 
         if (entity.getEmail().isEmpty()) {
-            throw new ValidationException(Validated.invalid("Email", entity, "Email shouldn't be empty ", missing));
+            err = "Field is not properly configured: " + "Email" + ". For " + entity + ". Case " + "Email shouldn't be empty.";
+            throw new ValidationException(err);
         }
 
         if (entity.getEmail().indexOf(64) < 0) {
-            throw new ValidationException(Validated.invalid("Email", entity, "The Email is not properly introduced", malformed));
+            err = "Field is not properly configured: " + "Email" + ". For " + entity + ". Case " + "The Email is not properly introduced.";
+            throw new ValidationException(err);
         }
 
         if (entity.getPassword().isEmpty()) {
-            throw new ValidationException(Validated.invalid("Password", entity, "Password shouldn't be empty ", missing));
+            err = "Field is not properly configured: " + "Email" + ". For " + entity + ". Case " + "Password shouldn't be empty.";
+            throw new ValidationException(err);
         }
 
 
         if (entity.getGrade() < 0) {
-            throw new ValidationException(Validated.invalid("Grade", entity, "Student grade can't be negative", malformed));
+            err = "Field is not properly configured: " + "Grade" + ". For " + entity + ". Case " + "Student grade can't be negative.";
+            throw new ValidationException(err);
         }
 
         if (entity.getGrade() > 12) {
-            throw new ValidationException(Validated.invalid("Grade", entity, "The introduce grade doesn't exist", malformed));
+            err = "Field is not properly configured: " + "Grade" + ". For " + entity + ". Case " + "The introduce grade doesn't exist.";
+            throw new ValidationException(err);
         }
 
     }

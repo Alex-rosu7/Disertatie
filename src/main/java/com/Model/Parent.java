@@ -1,25 +1,15 @@
 package com.Model;
 
-import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.List;
-
-@EqualsAndHashCode(callSuper = true)
 @Data
-@Table
-@Entity
+@Document(collation = "Parents")
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 public class Parent extends Person {
-
-    @Id
-    private String id;
-
-    // list of children
-
 
     public Parent(String firstName, String lastName, String email, String password) {
         super(firstName, lastName, email, password);
@@ -28,11 +18,7 @@ public class Parent extends Person {
 
     @Override
     public String getId() {
-        return id;
+        return super.getId();
     }
 
-    @Override
-    public void setId(String id) {
-        this.id = id;
-    }
 }

@@ -1,34 +1,19 @@
 package com.Model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@EqualsAndHashCode(callSuper = true)
+import java.util.List;
+
+
 @Data
-@Table
-@Entity
+@Document(collation = "Teacher")
 @NoArgsConstructor
+@EqualsAndHashCode(callSuper = true)
 public class Teacher extends Employee {
-    @Id
-    private String id;
 
-    @Column
-    @NonNull
-    private Subject subject;
+    private List<Subject> subjects;
 
-    @Override
-    public String getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(String id) {
-        this.id = id;
-    }
 }

@@ -1,31 +1,20 @@
 package com.Model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-@EqualsAndHashCode(callSuper = true)
+import static java.util.Objects.isNull;
+
 @Data
-@Entity
-@Table
 @NoArgsConstructor
+@EqualsAndHashCode(callSuper = true)
 public class Employee extends Person {
 
-    @Id
-    private String id;
-
-    @Column
     private double salary = 0.00D;
 
-    @Column
     private String company;
 
-    @Column
     boolean deleted;
 
     public Employee(String FName, String LName, String Email, String Password, double Salary) {
@@ -35,13 +24,9 @@ public class Employee extends Person {
 
 
     @Override
-    public String getId() {
-        return this.id;
+    public boolean isNew() {
+        return isNull(super.getCreatedAt());
     }
 
-    @Override
-    public void setId(String id) {
-        this.id = id;
-    }
 
 }

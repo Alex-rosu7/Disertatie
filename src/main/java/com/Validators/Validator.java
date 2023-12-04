@@ -1,6 +1,7 @@
 package com.Validators;
 
-import io.micrometer.core.instrument.config.validate.ValidationException;
+
+import com.Exceptions.ValidationException;
 
 public interface Validator<E> {
     void validate(E var)  throws ValidationException;
