@@ -1,0 +1,10 @@
+# Server Configuration
+server:
+  port: 9999
+
+# Database Configuration
+spring:
+  data:
+    mongodb:
+      host: mongodb://localhost:27017
+      database: local
