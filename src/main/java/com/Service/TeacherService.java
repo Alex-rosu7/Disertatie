@@ -1,17 +1,17 @@
 package com.Service;
 
 
-import com.JPARepositories.TeacherRepository;
+import com.JPARepositories.ITeacherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class TeacherService {
 
-    private TeacherRepository teacherRepository;
+    private ITeacherRepository teacherRepository;
 
     @Autowired
-    public TeacherService(TeacherRepository teacherRepository) {
+    public TeacherService(ITeacherRepository teacherRepository) {
         this.teacherRepository = teacherRepository;
     }
 }

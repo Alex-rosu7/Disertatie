@@ -1,16 +1,15 @@
 package com.Service;
 
-import com.JPARepositories.ParentRepository;
-import com.JPARepositories.StudentRepository;
+import com.JPARepositories.IStudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class StudentService {
-    private StudentRepository studentRepository;
+    private IStudentRepository studentRepository;
 
     @Autowired
-    public StudentService(StudentRepository studentRepository) {
+    public StudentService(IStudentRepository studentRepository) {
         this.studentRepository = studentRepository;
     }
 }
